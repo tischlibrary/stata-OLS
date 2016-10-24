@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Linear Regression with Stata</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Linear Regression with Stata">
+  <meta name="author" content="Josh Quan - joshua.quan@tufts.edu">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/solarized_light.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Linear Regression with Stata</h1>
+    <h2>Fall 2016</h2>
+    <p>Josh Quan - joshua.quan@tufts.edu<br/>Tisch Library</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <style>
+.title-slide {
+  background-color: #c7d8ed
+}
+</style>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:#ffffff;">
+  <hgroup>
+    <h2>Goals for the Hour</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>(brief) Introduction to the Stata Interface</li>
+<li>2 Examples of Linear Regression</li>
+<li>Exporting Regression Tables </li>
+<li>Where to get help</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Preliminaries</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>tinyurl.com/tischstata</p></li>
+<li><p>Open Stata:  Windows -&gt; Data &amp; Statistical Applications -&gt; Stata 14</p></li>
+<li><p>In Stata: File -&gt; Change Working Directory... </p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>The Stata Interface</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Command Line</li>
+<li>Review</li>
+<li>Output/Results</li>
+<li>Variables</li>
+<li>Properties</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Stata Workflow</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Highly recommended to keep a do/log file of your sessions</p>
+
+<ul>
+<li>do file = a script of your syntax that can be executed</li>
+<li>log file = record of your output</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Tidy Data = Happy Data</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="tidy.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Tidy Data = Happy Data</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>How Many Variables?</p>
+
+<p><img src="untidy.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Tidy Data = Happy Data</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>How Many Variables?</p>
+
+<p><img src="tidy1.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>Tidy Data = Happy Data</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="tidy.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Linear Regression</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="equation.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>Linear Regression</h2>
+  </hgroup>
+  <article data-timings="">
+    <iframe src="https://gallery.shinyapps.io/simple_regression/"></iframe> 
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Life Expectancy Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Six Variables: region, country, popgrowth, lexp, gnppc, safewater</p>
+
+<pre><code>/* this is a comment, does not run */
+use lifeexp.dta
+
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Life Expectancy Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>/* basic information about data types */
+describe
+</code></pre>
+
+<p><img src="lifeexp_desc.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>Life Expectancy Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>/* basic descriptive statistics about our dataset */
+summarize
+</code></pre>
+
+<p><img src="lifeexp_sum.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>Life Expectancy Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>browse
+</code></pre>
+
+<p>Why are values different colors?</p>
+
+<p><img src="lifeexp_browse.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Life Expectancy Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Matrix plots </p>
+
+<pre><code>graph matrix lexp safewater gnppc popgrowth
+</code></pre>
+
+<p><img src="matrix.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>Life Expectancy Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>regress y x</p>
+
+<pre><code>regress lexp safewater
+</code></pre>
+
+<p><img src="lifeexp_regress.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>Life Expectancy Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>regress y x</p>
+
+<pre><code>regress lexp safewater
+</code></pre>
+
+<p><img src="lifeexp_regress_1.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>Life Expectancy Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>regress y x</p>
+
+<pre><code>regress lexp safewater
+</code></pre>
+
+<p><img src="lifeexp_regress_1.png" alt=""></p>
+
+<ul>
+<li>Each 1 unit increase in safewater estimates a .238 change in life expectancy</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>Life Expectancy Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>scatter plot with fit line</p>
+
+<pre><code>twoway scatter lexp safewater || lfit lexp safewater
+</code></pre>
+
+<p><img src="lfit.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>Heights Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>clear
+use heights.dta
+summarize
+</code></pre>
+
+<p><img src="heights_sum.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  <hgroup>
+    <h2>Heights Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>six variables: earn, height, gender, ed, age, race</p>
+
+<p>Is there a significant relationship between height and salary?</p>
+
+<pre><code>regress earn height
+</code></pre>
+
+<p>Interpret the output on your own or with a neighbor</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-23" style="background:;">
+  <hgroup>
+    <h2>Heights Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Is there a significant relationship between height and salary?</p>
+
+<pre><code>regress earn height
+</code></pre>
+
+<p><img src="heights_regress.png" alt=""></p>
+
+<ul class = "build incremental">
+<li>- each 1 unit increase in height estimates a 1,222 increase in earnings</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-24" style="background:;">
+  <hgroup>
+    <h2>Heights Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Multiple Regression </p>
+
+<pre><code>regress earn height ed
+</code></pre>
+
+<p><img src="heights_regress_1.png" alt=""></p>
+
+<p>what happens to our coefficients when we add variables to the model?</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>Heights Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Multiple Regression with a Categorical Variable</p>
+
+<pre><code>regress earn height ed gender
+</code></pre>
+
+<ul class = "build incremental">
+<li><img src="no_observations.png" alt=""></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-26" style="background:;">
+  <hgroup>
+    <h2>Heights Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Multiple Regression with a Categorical Variable</p>
+
+<pre><code>/*one way to create a dummy variable*/
+gen female = (gender == &quot;female&quot;)
+
+/*and another*/
+gen female = 0
+replace female = 1 if gender == &quot;female&quot;
+
+/*yet another*/
+xi: regress earn i.gender
+
+</code></pre>
+
+<p><img src="dummy.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-27" style="background:;">
+  <hgroup>
+    <h2>Heights Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Multiple Regression with a Categorical Variable</p>
+
+<pre><code>regress earn height ed female
+</code></pre>
+
+<p><img src="heights_regress_3.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-28" style="background:;">
+  <hgroup>
+    <h2>Exporting Results</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>outreg2</p>
+
+<pre><code>outreg2 using model.doc
+regress earn height 
+
+
+</code></pre>
+
+<p><img src="out.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-29" style="background:;">
+  <hgroup>
+    <h2>Exporting Results</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>outreg2</p>
+
+<pre><code>regress earn height ed age
+outreg2 using model.doc, append
+
+
+</code></pre>
+
+<p><img src="out2.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-30" style="background:;">
+  <hgroup>
+    <h2>Next Steps</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Regression Diagnostics</li>
+<li>Hierarchical Models (ANOVA)</li>
+<li>Non-Linear or Non-parametric Models</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-31" style="background:;">
+  <hgroup>
+    <h2>Getting Help</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>In Stata</li>
+</ul>
+
+<pre><code>help regress
+</code></pre>
+
+<ul>
+<li>Learning Resources
+
+<ul>
+<li><a href="http://researchguides.library.tufts.edu/data/stata">http://researchguides.library.tufts.edu/data/stata</a></li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-32" style="background:;">
+  <hgroup>
+    <h2>thank you!</h2>
+  </hgroup>
+  <article data-timings="">
+    <h2>email: <a href="mailto:joshua.quan@tufts.edu">joshua.quan@tufts.edu</a></h2>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Goals for the Hour'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Preliminaries'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='The Stata Interface'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Stata Workflow'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Tidy Data = Happy Data'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Tidy Data = Happy Data'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Tidy Data = Happy Data'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Tidy Data = Happy Data'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Linear Regression'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='Linear Regression'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Life Expectancy Dataset'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Life Expectancy Dataset'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Life Expectancy Dataset'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='Life Expectancy Dataset'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Life Expectancy Dataset'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='Life Expectancy Dataset'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='Life Expectancy Dataset'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='Life Expectancy Dataset'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='Life Expectancy Dataset'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='Heights Dataset'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='Heights Dataset'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Heights Dataset'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='Heights Dataset'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='Heights Dataset'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='Heights Dataset'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='Heights Dataset'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='Exporting Results'>
+         28
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=29 title='Exporting Results'>
+         29
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=30 title='Next Steps'>
+         30
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=31 title='Getting Help'>
+         31
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=32 title='thank you!'>
+         32
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

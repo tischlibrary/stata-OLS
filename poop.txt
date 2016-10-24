@@ -1,0 +1,14 @@
+	(1)	(2)
+VARIABLES	earn	earn
+		
+height	1,222***	1,302***
+	(142.1)	(142.5)
+age		142.6***
+		(34.61)
+Constant	-58,612***	-69,874***
+	(9,526)	(9,849)
+		
+Observations	1,192	1,192
+R-squared	0.058	0.072
+Standard errors in parentheses		
+*** p<0.01, ** p<0.05, * p<0.1		

@@ -1,0 +1,12 @@
+	(1)
+VARIABLES	earn
+	
+height	1,222***
+	(142.1)
+Constant	-58,612***
+	(9,526)
+	
+Observations	1,192
+R-squared	0.058
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

@@ -1,0 +1,22 @@
+{\rtf1\fs24
+\trowd\trgaph75\trleft-75\intbl\trqc\clbrdrt\brdrs\cellx1872\clbrdrt\brdrs\cellx3456\clbrdrt\brdrs\cellx5040
+\ql \cell\qc (1)\cell\qc (2)\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx1872\cellx3456\cellx5040
+\trowd\trgaph75\trleft-75\trqc\clbrdrb\brdrs\cellx1872\clbrdrb\brdrs\cellx3456\clbrdrb\brdrs\cellx5040
+\ql VARIABLES\cell\qc earn\cell\qc earn\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx1872\cellx3456\cellx5040
+\ql \cell\qc \cell\qc \cell\row
+\ql height\cell\qc 1,222***\cell\qc 1,302***\cell\row
+\ql \cell\qc (142.1)\cell\qc (142.5)\cell\row
+\ql age\cell\qc \cell\qc 142.6***\cell\row
+\ql \cell\qc \cell\qc (34.61)\cell\row
+\ql Constant\cell\qc -58,612***\cell\qc -69,874***\cell\row
+\ql \cell\qc (9,526)\cell\qc (9,849)\cell\row
+\ql \cell\qc \cell\qc \cell\row
+\ql Observations\cell\qc 1,192\cell\qc 1,192\cell\row
+\trowd\trgaph75\trleft-75\trqc\trbrdrb\brdrs\clbrdrb\brdrs\cellx1872\clbrdrb\brdrs\cellx3456\clbrdrb\brdrs\cellx5040
+\ql R-squared\cell\qc 0.058\cell\qc 0.072\cell\row
+\pard\qc
+Standard errors in parentheses\par
+*** p<0.01, ** p<0.05, * p<0.1\par
+}

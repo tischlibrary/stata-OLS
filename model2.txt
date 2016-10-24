@@ -1,0 +1,14 @@
+	(1)	(2)	(3)
+VARIABLES	earn	earn	earn
+			
+height	1,222***	371.7*	371.7*
+	(142.1)	(195.7)	(195.7)
+female		-9,480***	-9,480***
+		(1,526)	(1,526)
+Constant	-58,612***	3,747	3,747
+	(9,526)	(13,737)	(13,737)
+			
+Observations	1,192	1,192	1,192
+R-squared	0.058	0.088	0.088
+Standard errors in parentheses			
+*** p<0.01, ** p<0.05, * p<0.1			
